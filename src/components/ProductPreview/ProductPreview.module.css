@@ -1,0 +1,41 @@
+/* src/components/ProductPreview/ProductPreview.module.css */
+
+.previewContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem; /* Reduced vertical padding for mobile */
+  background-color: #ffffff;
+  transition: padding 0.3s ease;
+}
+
+.previewImage {
+  width: 100%;
+  max-width: 95%; /* Image is larger on mobile screens */
+  height: auto;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* For Tablets and larger devices */
+@media (min-width: 768px) {
+  .previewContainer {
+    padding: 5rem 2rem; /* Increase padding for tablets */
+  }
+
+  .previewImage {
+    max-width: 85%; /* Make the image slightly smaller relative to the screen */
+  }
+}
+
+/* For Laptops and Desktops */
+@media (min-width: 1024px) {
+  .previewContainer {
+    padding: 6rem 4rem; /* Full padding for large screens */
+  }
+
+  .previewImage {
+    max-width: 80%; /* Further reduce relative size on desktops */
+  }
+}

@@ -1,0 +1,113 @@
+/* Base (Mobile) Styles */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem; /* Reduced padding for mobile */
+  background-color: #ffffff;
+}
+
+.mainHeading {
+  font-size: 2.5rem; /* Reduced font size for mobile */
+  font-weight: 900;
+  color: #000000;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.05em;
+}
+
+.mainHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* Adjusted for smaller font */
+  left: 5%;
+  width: 30%;
+  height: 3px; /* Thinner for mobile */
+  background-color: #fca311;
+  border-radius: 5px;
+}
+
+.subHeading {
+  font-size: 1.25rem; /* Reduced font size for mobile */
+  color: #555;
+  margin-top: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.auditForm {
+  margin-top: 2.5rem;
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.urlInput {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.urlInput:focus {
+  outline: none;
+}
+
+.auditButton {
+  border: none;
+  background-color: #0d98de;
+  color: #ffffff;
+  padding: 1rem 1.5rem; /* Slightly less padding */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.auditButton:hover {
+  background-color: #0a7ab3;
+}
+
+.formCaption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 5rem 1rem;
+  }
+  .mainHeading {
+    font-size: 3rem;
+  }
+  .subHeading {
+    font-size: 1.5rem;
+  }
+  .mainHeading::after {
+    bottom: -10px;
+    height: 4px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .heroSection {
+    padding: 6rem 1rem;
+  }
+  .mainHeading {
+    font-size: 3.5rem;
+  }
+  .subHeading {
+    font-size: 1.75rem;
+  }
+}

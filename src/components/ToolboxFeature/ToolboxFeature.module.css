@@ -1,0 +1,81 @@
+/* src/components/ToolboxFeature/ToolboxFeature.module.css */
+
+.toolboxSection {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 6rem 4rem;
+    background-color: #ffffff;
+  }
+  
+  .imageContainer {
+    flex: 1;
+  }
+  
+  .featureImage {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .textContainer {
+    flex: 1;
+    max-width: 550px;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+    text-align: justify;
+  }
+  
+  .toolList {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .toolListItem {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .checkIcon {
+    color: #0477eb; /* A nice blue for the checkmarks */
+    margin-right: 0.75rem;
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+  }
+  
+  .ctaButton {
+    background-color: #036ed9;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .ctaButton:hover {
+    background-color: #0fe951;
+  }
+  
+  @media (max-width: 992px) {
+    .toolboxSection {
+      flex-direction: column-reverse; /* Stacks text above image on mobile */
+      padding: 4rem 2rem;
+    }
+  }

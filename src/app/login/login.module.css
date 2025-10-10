@@ -1,0 +1,150 @@
+/* src/app/login/login.module.css */
+
+/* This new class creates the grey background for the whole page */
+.background {
+    background-color: #f8f9fa;
+    padding: 4rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* This is now the main white and blue card container */
+  .pageWrapper {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* This keeps the inner columns rounded */
+  }
+  
+  .formColumn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 4rem;
+    background-color: #ffffff;
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+    text-align: center;
+  }
+  
+  .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .errorMessage {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .forgotLinkContainer {
+    text-align: right;
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgotLink {
+    color: #0477eb;
+    font-size: 0.9rem;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 1rem;
+    background-color: #2278f9;
+    border: none;
+    border-radius: 6px;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .signUpLink {
+    text-align: center;
+    margin-top: 2rem;
+    color: #555;
+  }
+  
+  .signUpLink a {
+    color: #0477eb;
+    font-weight: 600;
+  }
+  
+  /* --- Right Column --- */
+  .graphicColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0466ce, #2c8cf4);
+    color: white;
+    padding: 3rem;
+  }
+  
+  /* This new class creates the frame for the image */
+  .imageFrame {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .graphicTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .graphicSubtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    text-align: center;
+  }
+  
+  @media (max-width: 992px) {
+    .graphicColumn {
+      display: none; /* Hide the graphic column on smaller screens */
+    }
+    .background {
+      padding: 2rem 1rem;
+    }
+  }
+  .nameRow {
+    display: flex;
+    gap: 1rem;
+  }
+  

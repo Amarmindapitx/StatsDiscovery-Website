@@ -1,0 +1,30 @@
+/* src/components/WhyChooseUs/WhyChooseUs.module.css */
+
+.whyChooseUsSection {
+    background-color: #eaeff4; /* A light grey background */
+    padding: 6rem 2rem;
+  }
+  
+  .contentWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Make the last paragraph stand out a bit less if desired */
+  .paragraph:last-child {
+    margin-bottom: 0;
+  }

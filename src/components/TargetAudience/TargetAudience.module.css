@@ -1,0 +1,56 @@
+.audienceSection {
+    background-color: #f4ecdc; /* A very light off-white background */
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  
+  .contentWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+  }
+  
+  .subheading {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 3rem;
+  }
+  
+  .benefitsList {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .benefitItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .checkIcon {
+    color: #0477eb;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+  
+  .benefitText {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+  }
+  
+  .benefitText strong {
+    color: #1a1a1a;
+    font-weight: 700;
+  }

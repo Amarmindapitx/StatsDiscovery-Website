@@ -1,0 +1,97 @@
+/* src/components/Footer/Footer.module.css */
+
+.footer {
+    background-color: #eafdfd;
+    padding: 4rem 4rem 2rem 4rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .footerGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .column h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mainLogo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .socialIcons a {
+    color: #555;
+    transition: color 0.2s ease;
+  }
+  
+  .socialIcons a:hover {
+    color: #0477eb;
+  }
+  
+  .linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .linkList li {
+    margin-bottom: 1rem;
+  }
+  
+  .linkList a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .linkList a:hover {
+    color: #1a1a1a;
+  }
+  
+  .awardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .subFooter {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 992px) {
+    .footerGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footerGrid {
+      grid-template-columns: 1fr;
+    }
+    .footer {
+      padding: 3rem 2rem;
+    }
+  }

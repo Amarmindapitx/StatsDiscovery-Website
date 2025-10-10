@@ -1,0 +1,51 @@
+/* src/components/CustomizationFeature/CustomizationFeature.module.css */
+
+.customizationSection {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 6rem 4rem;
+    background-color: #f8f9fa; /* Light grey background */
+  }
+  
+  .textContainer {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .previewImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  }
+  
+  /* Responsive layout for smaller screens */
+  @media (max-width: 992px) {
+    .customizationSection {
+      flex-direction: column;
+      padding: 4rem 2rem;
+    }
+  }

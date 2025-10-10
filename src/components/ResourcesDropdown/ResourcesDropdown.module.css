@@ -1,0 +1,30 @@
+/* src/components/ResourcesDropdown/ResourcesDropdown.module.css */
+
+.grid {
+    list-style: none;
+    display: grid;
+    /* This creates the two-column layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 1.5rem;
+    width: 500px; /* You can adjust the width of the dropdown */
+  }
+  
+  .listItem {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    outline: none;
+  }
+  
+  .listItem:hover, .listItem:focus {
+    background-color: #f1f5f9; /* A light grey for hover/focus */
+  }
+  
+  .itemTitle {
+    font-weight: 500;
+    color: #1a1a1a;
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
