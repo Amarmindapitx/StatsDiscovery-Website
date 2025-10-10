@@ -8,11 +8,11 @@ const SeoSuiteSummary = () => {
       <div className={styles.contentWrapper}>
         <h2 className={styles.heading}>Complete, Affordable SEO Suite</h2>
         <p className={styles.description}>
-          StatsDiscovery is famous for its SEO Auditing capabilities coupled with configurable White Label Reports and the ability to Embed Auditing into your site.
-        </p>
+        StatsDiscovery is renowned for its powerful SEO auditing features, flexible white-label reporting, and seamless website embedding options that help agencies and businesses deliver value instantly.        </p>
         <p className={styles.description}>
-          However, we’ve also built out a comprehensive suite of tools covering every SEO function, at a fraction of the cost of competing tools.
-        </p>
+        But that’s just the beginning.
+        We’ve designed a comprehensive, all-in-one SEO toolkit that covers everything — from on-page optimization and Core Web Vitals analysis to backlink insights, usability checks, and performance scoring — all at a fraction of the cost of competing platforms.
+        With StatsDiscovery, you get enterprise-grade SEO intelligence without the enterprise-level price tag.        </p>
       </div>
     </section>
   );

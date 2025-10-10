@@ -9,10 +9,12 @@ const CustomizationFeature = () => {
           Languages and Customization Options
         </h2>
         <p className={styles.description}>
-          White Label SEO Reports are available in several languages including French, Spanish and German, with more being added.
+        StatsDiscovery supports multi-language white-label SEO reports, allowing agencies and businesses to deliver audits in languages like English, French, Spanish, and German — with more being added regularly.
         </p>
         <p className={styles.description}>
-          Customize reports to your heart’s desire - change colors and fonts. Choose which checks and sections to show, and add custom content for that personal touch.
+        Personalize your reports to perfectly match your brand identity.
+        Change logos, colors, and fonts, select which audit sections or checks to display, and include custom notes or recommendations for clients.
+        With StatsDiscovery, every report feels like your own — professional, branded, and client-ready.
         </p>
       </div>
       <div className={styles.imageContainer}>

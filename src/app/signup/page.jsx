@@ -1,29 +1,74 @@
-// src/app/signup/page.jsx
-
 "use client";
 
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// We are reusing the styles from the login page
 import styles from '../login/login.module.css';
 
-// Ensure the function is exported as the default
 export default function SignUpPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [company, setCompany] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!firstName) {
-      setError('First name cannot be blank.');
+    setError('');
+    setSuccess('');
+
+    if (!firstName || !email || !password) {
+      setError('Please fill all required fields.');
       return;
     }
-    setError('');
-    alert(`Signing up with email: ${email}`);
+
+    setLoading(true);
+
+    // Combine first and last name into one variable
+    const name = `${firstName} ${lastName}`.trim();
+
+    try {
+      const response = await fetch(
+        'https://overcostly-unsullen-loraine.ngrok-free.dev/api/auth/signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            company,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess('Signup successful! Redirecting to login...');
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setCompany('');
+
+        // Redirect after signup
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 1500);
+      } else {
+        setError(data?.message || 'Signup failed. Please try again.');
+      }
+    } catch (err) {
+      setError('Error connecting to server. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,23 +81,22 @@ export default function SignUpPage() {
             <form onSubmit={handleSubmit} noValidate>
               <div className={styles.nameRow}>
                 <div className={styles.inputGroup}>
-                  <label htmlFor="firstName">First Name</label>
+                  <label htmlFor="firstName">First Name *</label>
                   <input
                     type="text"
                     id="firstName"
-                    placeholder='first Name'
+                    placeholder="First Name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className={error ? styles.inputError : ''}
                   />
-                  {error && <p className={styles.errorMessage}>{error}</p>}
                 </div>
+
                 <div className={styles.inputGroup}>
                   <label htmlFor="lastName">Last Name</label>
                   <input
                     type="text"
                     id="lastName"
-                    placeholder='Last Name'
+                    placeholder="Last Name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -61,33 +105,49 @@ export default function SignUpPage() {
 
               <div className={styles.inputGroup}>
                 <label htmlFor="company">Company Name (Optional)</label>
-                <input type="text" id="company" placeholder='Company Name (Optinal)' />
+                <input
+                  type="text"
+                  id="company"
+                  placeholder="Company Name (Optional)"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                />
               </div>
 
               <div className={styles.inputGroup}>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="email"
                   id="email"
-                  placeholder='Enter your email id'
+                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
               <div className={styles.inputGroup}>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password *</label>
                 <input
                   type="password"
                   id="password"
-                    placeholder='Enter your password'
+                  placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              
-              <button type="submit" className={styles.submitButton}>Next</button>
+
+              {error && <p className={styles.errorMessage}>{error}</p>}
+              {success && <p className={styles.successMessage}>{success}</p>}
+
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={loading}
+              >
+                {loading ? 'Signing Up...' : 'Next'}
+              </button>
             </form>
+
             <p className={styles.signUpLink}>
               Already have an account? <Link href="/login">Login</Link>
             </p>

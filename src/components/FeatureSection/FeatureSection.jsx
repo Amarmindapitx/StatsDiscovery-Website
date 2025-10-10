@@ -37,13 +37,11 @@ const FeatureSection = () => {
     // Add the ref and conditional isVisible class here
     <section ref={sectionRef} className={`${styles.featureSection} ${isVisible ? styles.isVisible : ''}`}>
       <div className={styles.textContainer}>
-        <h2 className={styles.heading}>SEO Audits with Ease</h2>
+        <h2 className={styles.heading}>A Complete, 360-Degree SEO Analysis</h2>
         <p className={styles.description}>
-          Search Engines rely on many factors to rank a website. StatsDiscovery is a Website SEO Checker which reviews these and more to help identify problems that could be holding your site back from its potential.
-        </p>
+        StatsDiscovery performs a detailed SEO Analysis across 100 website data points. We provide a comprehensive view of your site's health by combining On-Page analysis, Core Web Vitals, backlinks insights, and usability and security checks.</p>
         <p className={styles.description}>
-          Additionally we provide a clear, actionable, prioritised list of recommendations to help improve.
-        </p>
+        Receive a clear A-F grade with a weighted score to instantly understand your site’s performance. Every check includes clear, actionable recommendations that guide you through the actual steps of improving your site.        </p>
         <button className={styles.learnMoreButton}>Learn More</button>
       </div>
       <div className={styles.imageContainer}>

@@ -25,8 +25,7 @@ const ToolboxFeature = () => {
       <div className={styles.textContainer}>
         <h2 className={styles.heading}>Free SEO Toolbox</h2>
         <p className={styles.description}>
-          In addition to being an SEO Audit Tool, StatsDiscovery provides a range of additional free SEO Tools that give you the power to improve your site yourself. These include:
-        </p>
+        Beyond powerful SEO audits, StatsDiscovery offers a suite of free SEO tools that empower you to optimize your website on your own. With these tools, you can quickly generate essential SEO files and content to improve your site’s performance and visibility.        </p>
         <ul className={styles.toolList}>
           {tools.map((tool) => (
             <li key={tool} className={styles.toolListItem}>

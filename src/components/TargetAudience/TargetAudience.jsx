@@ -4,15 +4,15 @@ import { FiCheck } from 'react-icons/fi';
 const benefits = [
   {
     title: 'Save Time',
-    text: 'Some agencies spend hundreds of hours of manual work performing Website Audits which can be automated in a matter of seconds.'
+    text: 'Stop spending hundreds of hours on manual audits. Run full website audits in seconds, fully automated and ready to act on.'
   },
   {
     title: 'Present Beautiful Reports',
-    text: 'Wow your clients and prospects with impressive bespoke reports that look like they were made by hand.'
+    text: 'Impress your clients and prospects with custom, white-label reports that look professionally crafted, every single time'
   },
   {
     title: 'Win More Customers',
-    text: 'Turn your site into a lead magnet. Use White Label PDF Reports and the Embeddable Audit Tool to acquire more customers straight from your website.'
+    text: 'Turn your website into a powerful lead-generation tool. Use white-label PDF reports and the Embeddable Audit Form to attract and convert new clients directly from your site.'
   }
 ];
 
@@ -24,7 +24,7 @@ const TargetAudience = () => {
           Perfect for Small Business Owners, Digital Agencies
         </h2>
         <p className={styles.subheading}>
-          ...SEO Experts, Web Designers or anyone that needs to improve a website!
+        Whether you’re a small business owner, digital agency, SEO expert, web designer, or anyone looking to improve a website, StatsDiscovery makes SEO simple, fast, and effective.
         </p>
         <ul className={styles.benefitsList}>
           {benefits.map((benefit) => (

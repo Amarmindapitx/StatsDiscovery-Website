@@ -17,13 +17,12 @@ const ReportsFeature = () => {
       </div>
       <div className={styles.textContainer}>
         <h2 className={styles.heading}>
-          Beautiful, Branded, White Label PDF Reports
+        A Powerful Dashboard Built for Agencies
         </h2>
         <p className={styles.description}>
-          Win more customers with a professional SEO Audit, written in simple language that inspires action.
-        </p>
+        Simplify your client SEO reporting and save hundreds of hours on manual audits. The agency dashboard allows you to manage multiple clients from a single interface, improving transparency and workflow.</p>
         <p className={styles.description}>
-          Simply upload your logo, add company details and adjust styling to suit your brand. Generate PDF SEO Audits in 20 seconds.
+        Track performance with an easy-to-read leaderboard that shows your best to worst performing sites. You can also schedule daily or weekly re-audits to automatically monitor your clients' SEO health over time.
         </p>
         <button className={styles.learnMoreButton}>Learn More</button>
       </div>

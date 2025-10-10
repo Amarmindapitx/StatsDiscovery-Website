@@ -28,16 +28,16 @@ const EmbeddableFeature = () => {
           Embeddable Audit Tools
         </h2>
         <p className={styles.description}>
-          Generate more leads straight from your website with your own Embedded SEO Audit Tool. Simply embed a simple Audit Form that matches your website’s styling and colors.
+        Turn your website into a powerful lead generation engine with StatsDiscovery’s Embeddable SEO Audit Form. Effortlessly integrate a lightweight, customizable audit form that perfectly matches your site’s design, colors, and branding.
         </p>
         <p className={styles.description}>
-          Present customers a beautiful branded audit that inspires action.
+        Deliver instant, white-labeled SEO reports that not only impress visitors but also convert them into qualified leads.
         </p>
         <p className={styles.description}>
-          Get notified of new leads and their details straight to your mailbox.
+        Receive real-time notifications for every new audit request, complete with lead details sent straight to your inbox.
         </p>
         <p className={styles.description}>
-          Send your leads and their reports straight to any other CRM, Mail Tool like MailChimp, Active Campaign and Salesforce.
+        Seamlessly connect with your favorite CRM and email marketing platforms like Mailchimp, ActiveCampaign, Salesforce, and more — so every lead flows smoothly into your sales funnel.
         </p>
         <button className={styles.learnMoreButton}>Learn More</button>
       </div>
