@@ -1,8 +1,39 @@
+"use client";
 import Image from 'next/image';
 import styles from './CustomizationFeature.module.css';
+import { useState, useRef, useEffect } from 'react'; // Import React hooks
 
 const CustomizationFeature = () => {
+
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(sectionRef.current);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      // The observer can be null if the component unmounts before the ref is set
+      if (observer && sectionRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
+    <section ref={sectionRef} className={`${styles.featureSection} ${isVisible ? styles.isVisible : ''}`} 
+    >
     <section className={styles.customizationSection}>
       <div className={styles.textContainer}>
         <h2 className={styles.heading}>
@@ -26,6 +57,7 @@ const CustomizationFeature = () => {
           className={styles.previewImage}
         />
       </div>
+      </section>
     </section>
   );
 };

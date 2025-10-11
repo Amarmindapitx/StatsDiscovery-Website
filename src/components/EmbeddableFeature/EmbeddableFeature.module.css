@@ -8,12 +8,29 @@
     background-color: #ffffff;
   }
   
+  .textContainer {
+    flex: 1;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  }
+  
   .imageContainer {
     flex: 1;
-    position: relative; /* This is key for overlaying the form */
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  }
+  
+  /* 2. Define the "visible" state that triggers the animation */
+  .isVisible .textContainer,
+  .isVisible .imageContainer {
+    opacity: 1;
+    transform: translateX(0);
   }
   
   .featureImage {
@@ -74,12 +91,7 @@
   .checkButton:hover {
     background-color: #22e535;
   }
-  
-  .textContainer {
-    flex: 1;
-    max-width: 500px;
-  }
-  
+
   .heading {
     font-size: 2.5rem;
     font-weight: 800;

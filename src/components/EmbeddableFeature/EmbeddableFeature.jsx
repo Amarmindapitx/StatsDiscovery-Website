@@ -3,8 +3,37 @@
 
 import Image from 'next/image';
 import styles from './EmbeddableFeature.module.css';
+import { useRef } from 'react';
+import { useState, useEffect } from 'react'; // Import React hooks
 
 const EmbeddableFeature = () => {
+
+  const[isVisible, setIsVisible]= useState(false);
+  const sectionRef=useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // When the component is visible on screen
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(sectionRef.current); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the component is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -12,6 +41,7 @@ const EmbeddableFeature = () => {
   };
 
   return (
+    <section ref={sectionRef} className={`${styles.featureSection} ${isVisible ? styles.isVisible : ''}`}>
     <section className={styles.embedSection}>
       <div className={styles.imageContainer}>
         {/* This is the background image showing the report */}
@@ -41,6 +71,7 @@ const EmbeddableFeature = () => {
         </p>
         <button className={styles.learnMoreButton}>Learn More</button>
       </div>
+      </section>
     </section>
   );
 };

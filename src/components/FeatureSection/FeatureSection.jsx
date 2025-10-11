@@ -1,6 +1,4 @@
-// src/components/FeatureSection/FeatureSection.jsx
-
-"use client"; // This makes it a Client Component
+"use client"; 
 
 import { useState, useEffect, useRef } from 'react'; // Import React hooks
 import Image from 'next/image';

@@ -3,11 +3,22 @@
 /* Base (Mobile) Styles */
 .reportsSection {
   display: flex;
-  flex-direction: column-reverse; /* Stacks text above image on mobile */
+  flex-direction: column-reverse;
   align-items: center;
   gap: 2rem;
   padding: 4rem 2rem;
   background-color: #ffffff;
+  overflow: hidden; /* ADDED: Hides elements before they slide in */
+}
+
+/* ADDED: Initial "hidden" state for animation */
+.textContainer {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(50px); /* Starts off-screen to the left */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .imageContainer {
@@ -16,16 +27,21 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  opacity: 0;
+  transform: translateX(-50px); /* Starts off-screen to the right */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+/* ------------------------------------------- */
 
-.textContainer {
-  flex: 1;
-  max-width: 500px;
-  text-align: center; /* Center text on mobile */
+/* This is the "visible" state that triggers the animation */
+.isVisible .textContainer,
+.isVisible .imageContainer {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .heading {
-  font-size: 2rem; /* Smaller heading for mobile */
+  font-size: 2rem;
   font-weight: 800;
   color: #1a1a1a;
   margin-bottom: 1.5rem;
@@ -33,7 +49,7 @@
 }
 
 .description {
-  font-size: 1rem; /* Smaller description for mobile */
+  font-size: 1rem;
   line-height: 1.6;
   color: #555;
   margin-bottom: 1.5rem;
@@ -52,35 +68,35 @@
 }
 
 .learnMoreButton:hover {
-  background-color: #0561bc; /* FIXED: Changed to a darker blue */
+  background-color: #0561bc;
 }
 
 .featureImage {
-  max-width: 100%; /* Image takes more space on mobile */
+  max-width: 100%;
   height: auto;
 }
 
 /* Tablet and Desktop Styles */
 @media (min-width: 992px) {
   .reportsSection {
-    flex-direction: row; /* Change to two columns on larger screens */
+    flex-direction: row;
     gap: 3rem;
     padding: 6rem 4rem;
   }
 
   .textContainer {
-    text-align: left; /* Align text to the left on larger screens */
+    text-align: left;
   }
 
   .heading {
-    font-size: 2.5rem; /* Restore larger font size */
+    font-size: 2.5rem;
   }
 
   .description {
-    font-size: 1.1rem; /* Restore larger font size */
+    font-size: 1.1rem;
   }
 
   .featureImage {
-    max-width: 80%; /* Constrain image width on larger screens */
+    max-width: 80%;
   }
 }
