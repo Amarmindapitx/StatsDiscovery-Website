@@ -1,7 +1,10 @@
-"use client"; 
+// src/components/FeatureSection/FeatureSection.jsx
 
-import { useState, useEffect, useRef } from 'react'; // Import React hooks
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // 1. Import the Link component
 import styles from './FeatureSection.module.css';
 
 const FeatureSection = () => {
@@ -11,13 +14,12 @@ const FeatureSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // When the component is visible on screen
         if (entries[0].isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(sectionRef.current); // Stop observing once visible
+          observer.unobserve(sectionRef.current);
         }
       },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -32,19 +34,24 @@ const FeatureSection = () => {
   }, []);
 
   return (
-    // Add the ref and conditional isVisible class here
     <section ref={sectionRef} className={`${styles.featureSection} ${isVisible ? styles.isVisible : ''}`}>
       <div className={styles.textContainer}>
         <h2 className={styles.heading}>A Complete, 360-Degree SEO Analysis</h2>
         <p className={styles.description}>
-        StatsDiscovery performs a detailed SEO Analysis across 100 website data points. We provide a comprehensive view of your site's health by combining On-Page analysis, Core Web Vitals, backlinks insights, and usability and security checks.</p>
+          StatsDiscovery performs a detailed SEO Analysis across 100 website data points. We provide a comprehensive view of your site's health by combining On-Page analysis, Core Web Vitals, backlinks insights, and usability and security checks.
+        </p>
         <p className={styles.description}>
-        Receive a clear A-F grade with a weighted score to instantly understand your site’s performance. Every check includes clear, actionable recommendations that guide you through the actual steps of improving your site.        </p>
-        <button className={styles.learnMoreButton}>Learn More</button>
+          Receive a clear A-F grade with a weighted score to instantly understand your site’s performance. Every check includes clear, actionable recommendations that guide you through the actual steps of improving your site.
+        </p>
+
+        {/* 2. Replace the <button> with a <Link> component */}
+        <Link href="/seo-audit" className={styles.learnMoreButton}>
+          Learn More
+        </Link>
       </div>
       <div className={styles.imageContainer}>
         <Image
-          src="/assets/feature-dashboard.png" // Make sure this path is correct
+          src="/assets/feature-dashboard.png"
           alt="Dashboard showing SEO recommendations"
           width={700}
           height={550}

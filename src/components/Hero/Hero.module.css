@@ -5,18 +5,18 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 1rem; /* Reduced padding for mobile */
+  padding: 0 1rem 4rem; /* Reduced padding for mobile */
   background-color: #ffffff;
 }
 
 .mainHeading {
   font-size: 2.5rem; /* Reduced font size for mobile */
-  font-weight: 900;
+  font-weight: 700;
   color: #000000;
   margin: 0;
   position: relative;
   display: inline-block;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.01em;
 }
 
 .mainHeading::after {
@@ -26,7 +26,7 @@
   left: 5%;
   width: 30%;
   height: 3px; /* Thinner for mobile */
-  background-color: #fca311;
+  background-color: #129bf7;
   border-radius: 5px;
 }
 

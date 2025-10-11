@@ -1,0 +1,163 @@
+/* src/components/seo-audit-pages/GenerateLeads/GenerateLeads.module.css */
+
+.section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 6rem 2rem;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .textContainer {
+    flex: 1;
+  }
+  
+  .imageContainer {
+    flex: 1;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* --- Responsive Styles --- */
+  
+  /* For Tablets and smaller devices */
+  @media (max-width: 992px) {
+    .section {
+      flex-direction: column;
+      text-align: center;
+      padding: 4rem 1rem;
+      gap: 2rem; /* Reduce gap on smaller screens */
+    }
+  
+    .heading {
+      font-size: 2.2rem; /* Slightly smaller heading */
+    }
+  
+    .paragraph {
+      font-size: 1rem; /* Slightly smaller text */
+    }
+  }
+  
+  /* For Mobile Phones */
+  @media (max-width: 576px) {
+    .section {
+      padding: 3rem 1rem; /* Further reduce padding */
+    }
+    .heading {
+      font-size: 1.8rem;
+    }
+  }/* src/components/seo-audit-pages/GenerateLeads/GenerateLeads.module.css */
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.textContainer {
+  flex: 1;
+  z-index: 2; /* Ensures text is above any background elements */
+}
+
+.imageContainer {
+  flex: 1;
+  position: relative; /* Required for positioning the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* This rule creates the green circle */
+.imageContainer::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: #29D3A4;
+    border-radius: 50%;
+    z-index: 1;
+    
+    /* These 3 lines perfectly center the circle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
+/* Ensure the image is positioned on top of the circle */
+.imageContainer > :global(img) {
+    position: relative;
+    z-index: 2;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .section {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 1rem;
+    gap: 3rem; /* Increase gap for better spacing on mobile */
+  }
+
+  .imageContainer::before {
+    /* Make the circle smaller and adjust position on mobile */
+    width: 300px;
+    height: 300px;
+    right: -25px;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .imageContainer::before {
+    width: 250px;
+    height: 250px;
+  }
+}

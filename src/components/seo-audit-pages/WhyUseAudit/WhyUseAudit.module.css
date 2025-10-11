@@ -1,0 +1,52 @@
+/* src/components/WhyUseAudit/WhyUseAudit.module.css */
+
+.section {
+    padding: 6rem 2rem;
+    background-color: #ffffff;
+  }
+  
+  .mainHeading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 3rem;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .imageContainer {
+    flex: 1;
+  }
+  
+  .textContainer {
+    flex: 1;
+  }
+  
+  .subHeading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .contentWrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  }

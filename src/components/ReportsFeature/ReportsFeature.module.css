@@ -8,16 +8,15 @@
   gap: 2rem;
   padding: 4rem 2rem;
   background-color: #ffffff;
-  overflow: hidden; /* ADDED: Hides elements before they slide in */
+  overflow: hidden;
 }
 
-/* ADDED: Initial "hidden" state for animation */
 .textContainer {
   flex: 1;
   max-width: 500px;
   text-align: center;
   opacity: 0;
-  transform: translateX(50px); /* Starts off-screen to the left */
+  transform: translateX(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -28,18 +27,25 @@
   align-items: center;
   width: 100%;
   opacity: 0;
-  transform: translateX(-50px); /* Starts off-screen to the right */
+  transform: translateX(-50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-/* ------------------------------------------- */
 
-/* This is the "visible" state that triggers the animation */
+/* --- THE FIX IS HERE --- */
+
+/* This rule handles the initial slide-in for BOTH elements */
 .isVisible .textContainer,
 .isVisible .imageContainer {
   opacity: 1;
   transform: translateX(0);
 }
 
+/* This NEW rule applies the floating animation ONLY to the image */
+.isVisible .imageContainer {
+  animation: float 3s ease-in-out 0.8s infinite;
+}
+
+/* --- Other styles --- */
 .heading {
   font-size: 2rem;
   font-weight: 800;
@@ -98,5 +104,18 @@
 
   .featureImage {
     max-width: 80%;
+  }
+}
+
+/* Keyframes for the floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px); /* Moves the image up */
+  }
+  100% {
+    transform: translateY(0px); /* Returns to original position */
   }
 }
