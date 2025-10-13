@@ -32,7 +32,7 @@ export default function SignUpPage() {
 
     try {
       const response = await fetch(
-        'https://seo-oddm.vercel.app/api/auth/signup',
+        'https://seo-1nk3.vercel.app/api/auth/signup',
         {
           method: 'POST',
           headers: {
