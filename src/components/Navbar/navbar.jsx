@@ -67,9 +67,9 @@ const Navbar = () => {
           <Link href="/login" className={styles.loginLink}>
             <FaLock /> Login
           </Link>
-          <Link href="/premium-trial" className={styles.ctaButton}>
+          {/* <Link href="/premium" className={styles.ctaButton}>
             Premium - Free Trial
-          </Link>
+          </Link> */}
         </div>
 
       </div>
