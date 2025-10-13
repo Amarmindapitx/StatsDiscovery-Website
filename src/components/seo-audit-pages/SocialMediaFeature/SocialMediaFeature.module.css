@@ -1,0 +1,122 @@
+/* src/components/seo-audit-pages/SocialMediaFeature/SocialMediaFeature.module.css */
+
+.section {
+    padding: 6rem 2rem;
+    background-color: #ffffff;
+    overflow: hidden; /* Prevents icons from showing if they animate outside bounds */
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Icon | Text | Icon */
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .textContainer {
+    grid-column: 2 / 3; /* Place text in the middle column */
+    text-align: center;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .iconWrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Apply the animation */
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  /* Positioning for each icon */
+  .facebook {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: end;
+    align-self: start;
+    background-color: #8faef1;
+  }
+  .instagram {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    justify-self: start;
+    align-self: start;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    animation-delay: 1s; /* Stagger the animation */
+  }
+  .youtube {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: end;
+    align-self: end;
+    background-color: #ff8a8a;
+    animation-delay: 2s; /* Stagger the animation */
+  }
+  .twitter {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    justify-self: start;
+    align-self: end;
+    background-color: #8be1ff;
+    animation-delay: 3s; /* Stagger the animation */
+  }
+  
+  /* Keyframes for the up-and-down floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px); /* Moves the icon up */
+    }
+    100% {
+      transform: translateY(0px); /* Returns to original position */
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .gridContainer {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .textContainer {
+      grid-column: 1 / 3; /* Text takes full width */
+      grid-row: 2 / 3;
+      padding-top: 2rem;
+    }
+    .iconWrapper {
+      width: 80px;
+      height: 80px;
+      font-size: 2.5rem;
+    }
+    .facebook { grid-column: 1; grid-row: 1; justify-self: start; }
+    .instagram { grid-column: 2; grid-row: 1; justify-self: end; }
+    .youtube { grid-column: 1; grid-row: 3; justify-self: start; }
+    .twitter { grid-column: 2; grid-row: 3; justify-self: end; }
+  }

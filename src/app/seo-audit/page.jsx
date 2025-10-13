@@ -6,6 +6,9 @@ import AccessibilityFeature from '@/components/seo-audit-pages/AccessibilityFeat
 import { Key } from 'lucide-react';
 import KeywordRankings from '@/components/seo-audit-pages/KeywordRankings/KeywordRankings';
 import BacklinksFeature from '@/components/seo-audit-pages/BacklinksFeature/BacklinksFeature';
+import ResponsivenessFeature from '@/components/seo-audit-pages/ResponsivenessFeature/ResponsivenessFeature';
+import PageSpeedFeature from '@/components/seo-audit-pages/PageSpeedFeature/PageSpeedFeature';
+import SocialMediaFeature from '@/components/seo-audit-pages/SocialMediaFeature/SocialMediaFeature';
 
 export default function SeoAuditPage() {
   return (
@@ -17,6 +20,9 @@ export default function SeoAuditPage() {
       <AccessibilityFeature />
       <KeywordRankings />
       <BacklinksFeature />
+      <ResponsivenessFeature />
+      <PageSpeedFeature />
+      <SocialMediaFeature />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-// src/components/Navbar/navbar.jsx
-
 "use client";
 
 import Link from 'next/link';
@@ -7,7 +5,7 @@ import Image from 'next/image';
 import styles from './navbar.module.css';
 import { FaLock } from 'react-icons/fa';
 import FeaturesDropdown from '@/components/FeaturesDropdown/FeaturesDropdown';
-import ResourcesDropdown from '@/components/ResourcesDropdown/ResourcesDropdown'; // 1. Import the new component
+import ResourcesDropdown from '@/components/ResourcesDropdown/ResourcesDropdown';
 
 import {
   NavigationMenu,
@@ -24,6 +22,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur">
       <div className={styles.navContainer}>
         
+        {/* ✅ Logo */}
         <Link href="/">
           <Image 
             src="/assets/logo.png" 
@@ -33,8 +32,11 @@ const Navbar = () => {
           />
         </Link>
 
+        {/* ✅ Navigation Menu */}
         <NavigationMenu>
           <NavigationMenuList className="gap-1 md:gap-4">
+            
+            {/* Features Dropdown */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>Features</NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -42,13 +44,14 @@ const Navbar = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
+            {/* Pricing Link */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/pricing">Pricing</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            {/* 2. Update the "Resources" item to be a dropdown */}
+            {/* Resources Dropdown */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -59,8 +62,8 @@ const Navbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* ✅ Right Section */}
         <div className={styles.rightSection}>
-          <span>🇺🇸</span>
           <Link href="/login" className={styles.loginLink}>
             <FaLock /> Login
           </Link>

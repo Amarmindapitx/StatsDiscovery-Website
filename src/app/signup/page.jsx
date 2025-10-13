@@ -32,7 +32,7 @@ export default function SignUpPage() {
 
     try {
       const response = await fetch(
-        'https://overcostly-unsullen-loraine.ngrok-free.dev/api/auth/signup',
+        'https://seo-oddm.vercel.app/api/auth/signup',
         {
           method: 'POST',
           headers: {

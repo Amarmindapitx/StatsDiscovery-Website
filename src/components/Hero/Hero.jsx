@@ -1,11 +1,15 @@
 "use client";
 
+import { useRouter } from 'next/navigation'; 
 import styles from './Hero.module.css';
 
 const Hero = () => {
+  const router = useRouter(); // Initialize the router
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Audit submitted!');
+    // Instead of an alert, redirect to the /dashboard page
+    router.push('/dashboard');
   };
 
   return (
