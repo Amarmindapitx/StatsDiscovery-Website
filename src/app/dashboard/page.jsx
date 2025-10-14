@@ -1,13 +1,11 @@
-// app/dashboard/page.jsx
-
 import React from 'react';
+// --- 1. THE FIX: Import with a capital 'D' ---
+import DashboardLayout from '@/components/dashboard/DashboardLayout/DashboardLayout';
 
 const DashboardPage = () => {
   return (
-    <main style={{ padding: '4rem', textAlign: 'center', color: '#fff' }}>
-      <h1>SEO Audit Dashboard</h1>
-      <p>Your website analysis results will be displayed here.</p>
-    </main>
+    // --- 2. THE FIX: Use the component with a capital 'D' ---
+    <DashboardLayout />
   );
 };
 

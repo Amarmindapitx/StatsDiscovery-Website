@@ -1,0 +1,149 @@
+.chartContainer {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    font-family: sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 1.5rem;
+    color: #4ade80;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.infoIcon {
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #718096;
+    margin: 0.25rem 0 0;
+}
+
+/* --- UPDATED: Styles for the refresh spinner --- */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.refreshButtonContainer {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #a78bfa; /* Light purple border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refreshIcon {
+    color: #8b5cf6; /* Purple icon */
+    animation: spin 2s linear infinite;
+}
+/* ------------------------------------------- */
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: #4a5568;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.legendColorBox {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.timeframeSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timeframeButton, .activeTimeframe {
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.timeframeButton:hover {
+    color: #3b82f6;
+}
+
+.activeTimeframe {
+    color: #3b82f6;
+    border-bottom: 2px solid #3b82f6;
+}
+
+.chartWrapper {
+    width: 100%;
+    height: 300px;
+}
+
+/* --- ADDED: Style for the vertical campaign label --- */
+.campaignLabel {
+    font-size: 0.75rem;
+    color: #ef4444; /* Red color */
+    writing-mode: vertical-rl; /* This makes the text vertical */
+    transform: rotate(180deg) translateX(50%);
+    text-orientation: mixed;
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+/* ---------------------------------------------------- */

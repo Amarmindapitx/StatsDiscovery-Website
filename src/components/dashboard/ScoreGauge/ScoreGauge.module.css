@@ -1,0 +1,16 @@
+.gaugeContainer {
+    width: 160px;
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .scoreLabel {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+  }

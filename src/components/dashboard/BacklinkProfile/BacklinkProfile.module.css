@@ -1,0 +1,204 @@
+/* Main Container */
+.container {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 2rem;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.headerIcon {
+    font-size: 1.5rem;
+    color: #f59e0b;
+    margin-top: 0.1rem;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.3px;
+}
+
+.infoIcon {
+    color: #6366f1;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 0.35rem 0 0;
+    font-weight: 500;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.refreshButtonContainer {
+    width: 32px;
+    height: 32px;
+    border: 2.5px solid #c084fc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refreshButtonContainer:hover {
+    border-color: #a855f7;
+}
+
+.refreshIcon {
+    color: #a855f7;
+    font-size: 1.2rem;
+    animation: spin 2s linear infinite;
+}
+
+/* Main Content Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 3rem;
+}
+
+/* Chart Section */
+.chartSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.chartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.chartTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+.timeframeSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.timeframeButton,
+.activeTimeframe {
+    background: transparent;
+    border: none;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+    cursor: pointer;
+    border-bottom: 2.5px solid transparent;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.timeframeButton:hover {
+    color: #3b82f6;
+}
+
+.activeTimeframe {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+}
+
+.chartContainer {
+    background-color: #fafbfc;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem;
+}
+
+/* Summary Section */
+.summarySection {
+    border-left: 1px solid #e2e8f0;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.summaryTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.2px;
+}
+
+.summaryTable {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.summaryRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summaryLabel {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.summaryValue {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.95rem;
+    letter-spacing: -0.2px;
+}

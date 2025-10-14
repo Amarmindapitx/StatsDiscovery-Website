@@ -1,0 +1,59 @@
+/* Main card container.
+  - `display: flex` is the key for the horizontal layout.
+  - `justify-content: space-between` pushes the logo/text to the left and the button to the right.
+  - `flex-wrap: nowrap` is important to prevent items from stacking vertically.
+*/
+.card {
+    background-color: #ffffff;
+    padding: 1.25rem 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Ensures content stays on one line */
+    gap: 1.5rem;
+}
+
+/* Container for the logo and description text.
+  This is also a flex container to align them neatly side-by-side.
+*/
+.content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1; /* Allows this section to fill the available space */
+}
+
+.logo {
+    object-fit: contain;
+    flex-shrink: 0; /* Prevents the logo from shrinking if the text is long */
+}
+
+.description {
+    margin: 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Updated button styles for an exact match.
+  - The border-radius is set to a large value to create the "pill" shape.
+  - The border color is adjusted to the lighter blue.
+*/
+.connectButton {
+    background-color: #ffffff;
+    color: #4285f4;
+    border: 1px solid #d3e3fd; /* Lighter blue border to match the image */
+    padding: 0.6rem 1.75rem;
+    border-radius: 9999px; /* Creates the fully rounded shape */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap; 
+}
+
+.connectButton:hover {
+    background-color: #f8f9fa;
+}
