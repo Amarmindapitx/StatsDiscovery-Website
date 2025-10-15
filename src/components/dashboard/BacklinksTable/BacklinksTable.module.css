@@ -1,0 +1,106 @@
+.card {
+    background-color: #fff;
+    border: 1px solid #eef2f9;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #334155;
+    margin: 0;
+}
+
+.totalCount {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+}
+
+.table th {
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.table td {
+    color: #475569;
+}
+
+.sourceCell a {
+    color: #3b82f6;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sourceCell a:hover {
+    text-decoration: underline;
+}
+
+.anchorCell {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.anchorImage {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.targetUrl {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    word-break: break-all;
+}
+
+.dofollow, .nofollow {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.dofollow {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.nofollow {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.error {
+    color: #ef4444;
+}

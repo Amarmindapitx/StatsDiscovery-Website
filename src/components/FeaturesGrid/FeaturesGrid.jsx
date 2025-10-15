@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 import styles from './FeaturesGrid.module.css';
 
 const features = [
@@ -44,27 +45,38 @@ const features = [
   },
 ];
 
-const FeaturesGrid = () => {
+export default function FeaturesGrid() {
   return (
     <section className={styles.featuresSection}>
-      <div className={styles.gridContainer}>
-        {features.map((feature) => (
-          <div key={feature.title} className={styles.card}>
-            <Image
-              src={feature.imageSrc}
-              alt={`${feature.title} feature preview`}
-              width={250}
-              height={150}
-              className={styles.cardImage}
-            />
-            <h3 className={styles.cardTitle}>{feature.title}</h3>
-            <p className={styles.cardDescription}>{feature.description}</p>
-          </div>
-        ))}
-      </div>
+        <div className={styles.header}>
+            <h2 className={styles.title}>All-In-One SEO Platform</h2>
+            <p className={styles.subtitle}>
+                A complete suite of tools to help you with every aspect of your SEO strategy.
+            </p>
+        </div>
+        <div className={styles.gridContainer}>
+            {features.map((feature) => (
+            <CardContainer key={feature.title} className={styles.cardContainer}>
+              <CardBody className={styles.cardBody}>
+                <CardItem translateZ="60" className={styles.imageWrapper}>
+                  <Image
+                    src={feature.imageSrc}
+                    height="400"
+                    width="600"
+                    className={styles.cardImage}
+                    alt={`${feature.title} feature illustration`}
+                  />
+                </CardItem>
+                <CardItem translateZ="40" as="h3" className={styles.cardTitle}>
+                  {feature.title}
+                </CardItem>
+                <CardItem as="p" translateZ="20" className={styles.cardDescription}>
+                  {feature.description}
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          ))}
+        </div>
     </section>
   );
-};
-
-// Ensure this line is correct
-export default FeaturesGrid;
+}

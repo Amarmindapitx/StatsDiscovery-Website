@@ -1,83 +1,105 @@
-/* src/components/FeaturesGrid/FeaturesGrid.module.css */
-
+/* Light theme background and default text color */
 .featuresSection {
-  padding: 6rem 4rem;
-  background-color: #ffffff;
+  background-color: #f1f5f9; /* Light gray background */
+  color: #1e293b; /* Dark text color */
+  padding: 5rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Updated header text colors for light background */
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #334155; /* Darker title color */
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #64748b; /* Medium gray for subtitle */
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); /* Fixed width */
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 80rem;
   margin: 0 auto;
-  justify-content: center;
+  align-items: stretch; 
 }
 
-.card {
-  width: 300px;               /* ✅ Fixed width */
-  height: 400px;              /* ✅ Fixed height */
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  
+/* Responsive Grid Layout */
+@media (min-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cardContainer {
+  height: 100%;
+}
+
+/* Card styles remain dark with light text */
+.cardBody {
+  background-color: #595959; /* Dark card background */
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;        /* Center inner content horizontally */
-  background-color: #fff;     /* Prevent transparency issues */
-  box-sizing: border-box;     /* Keep padding inside width/height */
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+.cardBody:hover {
+    border-color: #4f46e5; /* A nice indigo highlight for hover */
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+    transform: translateY(-5px); /* Add a subtle lift effect */
+}
+
+.imageWrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .cardImage {
+  height: 10rem;
   width: 100%;
-  height: 160px;              /* ✅ Consistent image area */
-  object-fit: cover;          /* Keep aspect ratio without stretching */
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  filter: grayscale(0%); /* Removing grayscale for a more vibrant look on dark cards */
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardBody:hover .cardImage {
+    transform: scale(1.05); /* Slightly zoom image on hover */
 }
 
 .cardTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.75rem;
-  text-align: center;
+  color: #f1f5f9; /* White/light-gray for titles inside cards */
+  margin-bottom: 0.5rem;
 }
 
 .cardDescription {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8; /* Lighter gray for description inside cards */
   line-height: 1.5;
-  color: #555;
-  flex-grow: 1;
-  text-align: center;
-  overflow: hidden;           /* Hide overflowed text */
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 768px) {
-  .featuresSection {
-    padding: 4rem 2rem;
-  }
-
-  .gridContainer {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 250px)); /* Smaller fixed width for mobile */
-  }
-
-  .card {
-    width: 250px;
-    height: 380px;
-  }
-
-  .cardImage {
-    height: 140px;
-  }
+  flex-grow: 1; 
 }

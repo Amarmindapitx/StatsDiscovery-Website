@@ -1,0 +1,144 @@
+/* Main Grid Layout */
+.gridContainer {
+    display: grid;
+    /* This creates two columns and allows them to wrap on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* General Card Styles - Adjusted for the exact look */
+.card {
+    background-color: #fff;
+    border: 1px solid #eef2f9; /* Softer border color */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Softer, more pronounced shadow */
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.125rem; /* Slightly smaller title */
+    font-weight: 600;
+    color: #334155; /* Darker grey for better contrast */
+    margin: 0 0 1.5rem 0;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    flex-grow: 1;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem; /* Standard text size */
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 1rem 0.5rem; /* Increased vertical padding for more space */
+    border-bottom: 1px solid #f1f5f9; /* Lighter separator line */
+}
+
+.table tr:last-child td {
+    border-bottom: none; /* Remove border from the last row */
+}
+
+.table th {
+    color: #64748b; /* Lighter grey for headers */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    color: #475569;
+}
+
+.footer {
+    padding-top: 1.5rem;
+}
+
+.viewButton {
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem; /* Slightly larger button */
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px; /* Slightly more rounded corners */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.viewButton:hover {
+    background-color: #2563eb;
+}
+
+/* Top Keywords Specific Styles */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+.tab, .activeTab {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 0;
+    margin-right: 2rem; /* Increased space between tabs */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.activeTab {
+    color: #2563eb;
+    border-bottom: 2px solid #2563eb;
+    font-weight: 600;
+}
+
+.keywordCell {
+    color: #3b82f6;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.keywordCell:hover {
+    text-decoration: underline;
+}
+
+/* Keywords by Intent Specific Styles */
+.progressBar {
+    display: flex;
+    width: 100%;
+    height: 10px; /* Thicker progress bar */
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 2rem; /* More space below the bar */
+}
+
+.progressSegment {
+    height: 100%;
+}
+
+.intentCell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+.colorDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
