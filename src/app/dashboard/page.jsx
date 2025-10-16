@@ -1,14 +1,9 @@
-"use client";
+"use client"; // Client Component
 
-import React from 'react';
-// --- 1. THE FIX: Import with a capital 'D' ---
-import DashboardLayout from '@/components/dashboard/DashboardLayout/DashboardLayout';
+import DashboardLayout from "@/components/dashboard/DashboardLayout/DashboardLayout";
 
-const DashboardPage = () => {
-  return (
-    // --- 2. THE FIX: Use the component with a capital 'D' ---
-    <DashboardLayout />
-  );
-};
+export const dynamic = "force-dynamic"; // disables prerendering
 
-export default DashboardPage;
+export default function DashboardPage() {
+  return <DashboardLayout />;
+}

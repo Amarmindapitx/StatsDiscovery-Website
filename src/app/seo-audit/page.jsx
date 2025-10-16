@@ -9,12 +9,6 @@ import ResponsivenessFeature from '@/components/seo-audit-pages/ResponsivenessFe
 import PageSpeedFeature from '@/components/seo-audit-pages/PageSpeedFeature/PageSpeedFeature';
 import SocialMediaFeature from '@/components/seo-audit-pages/SocialMediaFeature/SocialMediaFeature';
 
-// --- CORRECTED AND ADDED IMPORTS ---
-import ResponsivenessFeature from '@/components/seo-audit-pages/ResponsivenessFeature/ResponsivenessFeature';
-import PageSpeedFeature from '@/components/seo-audit-pages/PageSpeedFeature/PageSpeedFeature';
-import SocialMediaFeature from '@/components/seo-audit-pages/SocialMediaFeature/SocialMediaFeature';
-
-
 export default function SeoAuditPage() {
   return (
     <div>
