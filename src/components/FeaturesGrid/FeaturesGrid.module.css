@@ -1,9 +1,9 @@
 /* Light theme background and default text color */
 .featuresSection {
-  background-color: #f1f5f9; /* Light gray background */
-  color: #1e293b; /* Dark text color */
+  background-color: #f1f5f9;
+  color: #f3f7ff;
   padding: 5rem 1.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .header {
@@ -14,30 +14,31 @@
   margin-right: auto;
 }
 
-/* Updated header text colors for light background */
 .title {
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  color: #334155; /* Darker title color */
+  color: #334155;
 }
 
 .subtitle {
   margin-top: 1rem;
   font-size: 1.125rem;
-  color: #64748b; /* Medium gray for subtitle */
+  color: #64748b;
 }
 
+/* Grid layout with fixed card heights */
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 380px; /* 👈 sets all cards to equal height */
   gap: 2rem;
   max-width: 80rem;
   margin: 0 auto;
-  align-items: stretch; 
+  align-items: stretch;
 }
 
-/* Responsive Grid Layout */
+/* Responsive Grid */
 @media (min-width: 768px) {
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
@@ -49,57 +50,75 @@
   }
 }
 
+/* Card container */
 .cardContainer {
   height: 100%;
+  display: flex;
 }
 
-/* Card styles remain dark with light text */
+/* Card design */
 .cardBody {
-  background-color: #595959; /* Dark card background */
+  background-color: #ffffff;
   border: 1px solid #334155;
   border-radius: 0.75rem;
   padding: 1.5rem;
   width: 100%;
-  height: 100%;
-  transition: all 0.3s ease-in-out;
+  height: 100%; /* 👈 ensures same height */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: all 0.3s ease-in-out;
 }
 
 .cardBody:hover {
-    border-color: #4f46e5; /* A nice indigo highlight for hover */
-    box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
-    transform: translateY(-5px); /* Add a subtle lift effect */
+  border-color: #4f46e5;
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+  transform: translateY(-5px);
 }
 
+/* Image wrapper */
 .imageWrapper {
-    width: 100%;
-    margin-bottom: 1.5rem;
+  width: 100%;
+  height: 150px; /* 👈 fixed height for all images */
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
 }
 
 .cardImage {
-  height: 10rem;
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
-  filter: grayscale(0%); /* Removing grayscale for a more vibrant look on dark cards */
   transition: transform 0.3s ease-in-out;
 }
 
 .cardBody:hover .cardImage {
-    transform: scale(1.05); /* Slightly zoom image on hover */
+  transform: scale(1.05);
 }
 
+/* Card text */
 .cardTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #f1f5f9; /* White/light-gray for titles inside cards */
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 .cardDescription {
   font-size: 0.9rem;
-  color: #94a3b8; /* Lighter gray for description inside cards */
+  color: #000000;
   line-height: 1.5;
-  flex-grow: 1; 
+  flex-grow: 1;
+}
+
+/* Ensures equal height alignment inside grid */
+.gridContainer > .cardContainer {
+  display: flex;
+  align-items: stretch;
+}
+
+.gridContainer > .cardContainer > .cardBody {
+  height: 100%;
 }

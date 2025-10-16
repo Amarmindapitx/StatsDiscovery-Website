@@ -43,8 +43,8 @@
   display: flex;
   width: 100%;
   max-width: 550px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 2px solid #1a1a1a; /* Thicker, darker border */
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: none;
 }
@@ -52,10 +52,10 @@
 .urlInput {
   flex-grow: 1;
   border: none;
-  padding: 1rem 1.2rem;
+  padding: 0.9rem 1.2rem;
   font-size: 1rem;
-  color: #333;
 }
+
 
 .urlInput:focus {
   outline: none;
@@ -63,9 +63,9 @@
 
 .auditButton {
   border: none;
-  background-color: #0d98de;
-  color: #ffffff;
-  padding: 1rem 1.5rem; /* Slightly less padding */
+  background-color: #7da6f7;
+  color: #1a1a1a;
+  padding: 0.9rem 2.5rem; /* Increased button padding */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -73,7 +73,7 @@
 }
 
 .auditButton:hover {
-  background-color: #0a7ab3;
+  background-color: #41f48f; /* Darker orange on hover */
 }
 
 .formCaption {

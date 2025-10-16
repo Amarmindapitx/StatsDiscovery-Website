@@ -9,6 +9,7 @@ import {
   FiShare2,
   FiSettings,
   FiCheckCircle,
+  FiInfo // Added for StatCard info icon
 } from "react-icons/fi";
 
 import {
@@ -19,9 +20,9 @@ import {
 import styles from "./DashboardLayout.module.css";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import ScoreGauge from "../ScoreGauge/ScoreGauge";
-import StatCard from "../StatCard/StatCard";
+import StatCard from "../StatCard/StatCard"; // Ensure this is correctly imported
 import IntegrationCard from "../IntegrationCard/IntegrationCard";
-import BacklinksTable from "../BacklinksTable/BacklinksTable";
+// import BacklinksTable from "../BacklinksTable/BacklinksTable"; // No longer needed here
 import OrganicKeywordsChart from "../OrganicKeywordsChart/OrganicKeywordsChart";
 import KeywordAnalysis from "../KeywordAnalysis/KeywordAnalysis";
 import SerpFeatures from "../SerpFeatures/SerpFeatures";
@@ -34,7 +35,7 @@ import GmbDashboard from "../GmbDashboard/GmbDashboard";
 const TABS = ["SEO", "ADS", "GMB", "SOCIAL", "REPUTO", "PMS", "CONTENT"];
 
 /* -------------------------------------------------------------------------------------------------
-   ✅ renderSeoSection
+    ✅ renderSeoSection
 ------------------------------------------------------------------------------------------------- */
 const renderSeoSection = (data, domain) => {
   if (!data) {
@@ -45,11 +46,37 @@ const renderSeoSection = (data, domain) => {
     );
   }
 
+  // --- MOCK CHART DATA (Replace with real data from your backend if available) ---
+  const organicKeywordsChartData = [
+    { name: 'Jan', value: 10 }, { name: 'Feb', value: 20 }, { name: 'Mar', value: 15 }, 
+    { name: 'Apr', value: 30 }, { name: 'May', value: 25 }, { name: 'Jun', value: 40 }, 
+    { name: 'Jul', value: 35 }, { name: 'Aug', value: 50 }, { name: 'Sep', value: 45 }, 
+    { name: 'Oct', value: 60 }, { name: 'Nov', value: 55 }, { name: 'Dec', value: 70 },
+  ];
+  const pageAuthorityChartData = [
+    { name: 'Jan', value: 30 }, { name: 'Feb', value: 32 }, { name: 'Mar', value: 35 }, 
+    { name: 'Apr', value: 38 }, { name: 'May', value: 40 }, { name: 'Jun', value: 42 }, 
+    { name: 'Jul', value: 44 }, { name: 'Aug', value: 43 }, { name: 'Sep', value: 45 }, 
+    { name: 'Oct', value: 48 }, { name: 'Nov', value: 50 }, { name: 'Dec', value: 52 },
+  ];
+  const referringDomainsChartData = [
+    { name: 'Jan', value: 10 }, { name: 'Feb', value: 12 }, { name: 'Mar', value: 11 }, 
+    { name: 'Apr', value: 14 }, { name: 'May', value: 18 }, { name: 'Jun', value: 17 }, 
+    { name: 'Jul', value: 19 }, { name: 'Aug', value: 22 }, { name: 'Sep', value: 21 }, 
+    { name: 'Oct', value: 23 }, { name: 'Nov', value: 25 }, { name: 'Dec', value: 24 },
+  ];
+  const domainAuthorityChartData = [
+    { name: 'Jan', value: 60 }, { name: 'Feb', value: 61 }, { name: 'Mar', value: 63 }, 
+    { name: 'Apr', value: 65 }, { name: 'May', value: 67 }, { name: 'Jun', value: 69 }, 
+    { name: 'Jul', value: 70 }, { name: 'Aug', value: 71 }, { name: 'Sep', value: 72 }, 
+    { name: 'Oct', value: 73 }, { name: 'Nov', value: 74 }, { name: 'Dec', value: 75 },
+  ];
+
   return (
     <>
       <div className={styles.mainGrid}>
         <div className={styles.leftColumn}>
-          <ScoreGauge score={"N/A"} />
+          <ScoreGauge score={data.score || "85"} />
           <p className={styles.scoreText}>
             Website score for <strong>{domain}</strong>
           </p>
@@ -59,24 +86,44 @@ const renderSeoSection = (data, domain) => {
 
           <div className={styles.checksList}>
             <div className={styles.checkItem}>
-              <span>Crawled pages</span> <span>N/A</span>
+              <span>Crawled pages</span> <span>{data.crawled_pages}</span>
             </div>
             <div className={styles.checkItem}>
               <FiCheckCircle className={styles.checkIcon} />
-              <span>Google indexable pages</span> <span>N/A</span>
+              <span>Google indexable pages</span> <span>{data.indexable}</span>
             </div>
             <div className={styles.checkItem}>
               <FiCheckCircle className={styles.checkIcon} />
-              <span>Google safe browsing</span> <span>Site is safe</span>
+              <span>Google safe browsing</span> <span>{data.safety}</span>
             </div>
           </div>
         </div>
 
         <div className={styles.rightColumn}>
-          <StatCard title="Organic Keywords" value={"N/A"} isBarChart={true} />
-          <StatCard title="Page Authority" value={"N/A"} />
-          <StatCard title="Referring Domains" value={data.total_count || "0"} />
-          <StatCard title="Domain Authority" value={"N/A"} />
+          <StatCard
+            title="Organic Keywords"
+            value={data.organic_keywords}
+            chartType="bar"
+            chartData={organicKeywordsChartData}
+          />
+          <StatCard
+            title="Page Authority"
+            value={data.page_authority}
+            chartType="line"
+            chartData={pageAuthorityChartData}
+          />
+          <StatCard
+            title="Referring Domains"
+            value={data.total_count}
+            chartType="line"
+            chartData={referringDomainsChartData}
+          />
+          <StatCard
+            title="Domain Authority"
+            value={data.domain_authority}
+            chartType="line"
+            chartData={domainAuthorityChartData}
+          />
         </div>
       </div>
 
@@ -95,10 +142,10 @@ const renderSeoSection = (data, domain) => {
         />
       </div>
 
-      <div className={styles.backlinksSection}>
-        <BacklinksTable backlinks={data.backlinks || []} />
-      </div>
-
+      {/* --- The detailed backlinks table has been removed from here to improve flow --- */}
+      {/* You can now show the BacklinksTable component on a separate page or in a modal, */}
+      {/* and link to it from within your BacklinkProfile component. */}
+      
       <div className={styles.chartSection}>
         <OrganicKeywordsChart />
       </div>
@@ -120,61 +167,53 @@ const renderSeoSection = (data, domain) => {
 };
 
 /* -------------------------------------------------------------------------------------------------
-   ✅ DashboardLayout Component
+    ✅ DashboardLayout Component
 ------------------------------------------------------------------------------------------------- */
 const DashboardLayout = () => {
   const router = useRouter();
 
-  // Client-side states
   const [domain, setDomain] = useState(null);
   const [activeTab, setActiveTab] = useState("SEO");
   const [dashboardData, setDashboardData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Client-only: extract query params
+  // Extract query params
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const domainParam = params.get("domain");
+    const domainParam = params.get("domain") || "example.com";
     const tabParam = params.get("tab") || "SEO";
-
     setDomain(domainParam);
     setActiveTab(tabParam);
   }, []);
 
-  // Fetch SEO Data from API
+  // 🧩 Replace API call with hardcoded mock data
   useEffect(() => {
     if (!domain) return;
 
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      setDashboardData(null);
+    setIsLoading(true);
+    setError(null);
 
-      try {
-        const response = await fetch(
-          "https://seo-lalv.vercel.app/api/backlinks/fetch",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ website: domain }),
-          }
-        );
+    // Simulate async delay like real API
+    setTimeout(() => {
+      const mockData = {
+        total_count: "24",
+        score: "85",
+        crawled_pages: "120",
+        indexable: "98%",
+        safety: "Site is safe",
+        organic_keywords: "230",
+        page_authority: "67",
+        domain_authority: "72",
+        backlinks: [
+          { source: "https://example.com", target: "https://yourdomain.com", anchor: "SEO tips" },
+          { source: "https://blog.com", target: "https://yourdomain.com", anchor: "marketing strategy" },
+        ],
+      };
 
-        if (!response.ok) {
-          throw new Error("Data could not be fetched for this domain.");
-        }
-
-        const result = await response.json();
-        setDashboardData(result.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
+      setDashboardData(mockData);
+      setIsLoading(false);
+    }, 1000);
   }, [domain]);
 
   const handleTabChange = (tab) => {

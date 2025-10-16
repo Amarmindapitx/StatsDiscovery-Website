@@ -1,7 +1,7 @@
 /* Main Container */
 .dashboardContainer {
     padding: 1.5rem;
-    background-color: #c0ddf0; /* A light grey background */
+    background-color: #f0f5f9; /* A slightly softer background */
     font-family: sans-serif;
 }
 
@@ -59,32 +59,34 @@
     color: #4a5568;
 }
 
-/* Main Grid Layout */
+/* --- Main Grid Layout (Updated & Fixed) --- */
 .mainGrid {
     margin-top: 1.5rem;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    /* Defines two columns: left one takes 1 part, right takes 2 parts */
+    grid-template-columns: 1fr 2fr; 
     gap: 1.5rem;
+    /* This is the key: forces both columns to be of equal height */
+    align-items: stretch; 
 }
 
-.leftColumn, .rightColumn {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
+/* The right column containing the 4 stat cards */
 .rightColumn {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* Creates two equal-width columns for the stat cards */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 1.5rem;
 }
 
-/* Left Column Specifics */
+/* The score card itself, which is also the left column container */
 .leftColumn {
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
+    /* Flexbox used for aligning content *inside* this card */
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
 }
@@ -135,25 +137,15 @@
     color: #48bb78; /* Green checkmark */
     margin-right: 0.5rem;
 }
-/* ... keep all your existing styles above this line ... */
 
-/* --- 3. ADD THESE NEW STYLES AT THE END --- */
+/* --- Other Sections --- */
 .connectionsContainer {
-    margin-top: 2rem; /* Add space above the connection cards */
+    margin-top: 1.5rem; /* Standardized margin */
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Space between the cards */
-}
-/* ... all your existing styles ... */
-
-/* --- LINE TO UPDATE (ADD) --- */
-.chartSection {
-    margin-top: 2rem;
+    gap: 1.5rem; /* Standardized gap */
 }
 
-/* ... all your other styles ... */
-
-/* --- ADD THIS STYLE FOR SPACING --- */
-.liveTrackingSection {
-    margin-top: 2rem;
-  }
+.chartSection, .liveTrackingSection {
+    margin-top: 1.5rem; /* Standardized margin */
+}

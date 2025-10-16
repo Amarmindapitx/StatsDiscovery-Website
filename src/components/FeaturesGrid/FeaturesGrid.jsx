@@ -16,7 +16,7 @@ const features = [
   {
     title: 'Keyword Tracking',
     description: 'Track the progress of search rankings over time by country, language, search engine and device type.',
-    imageSrc: '/assets/features/keyword-tracking.png',
+    imageSrc: '/assets/features/keyword-tracking-tool.png',
   },
   {
     title: 'Keyword Research',

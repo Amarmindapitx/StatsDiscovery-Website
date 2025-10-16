@@ -48,10 +48,10 @@ const FeatureSection = () => {
           usability and security checks.
         </p>
         <p className={styles.description}>
-          Receive a clear A-F grade with a weighted score to instantly understand
-          your site’s performance. Every check includes clear, actionable
-          recommendations that guide you through the actual steps of improving
-          your site.
+          Receive a clear A-F grade with a weighted score to instantly
+          understand your site’s performance. Every check includes clear,
+          actionable recommendations that guide you through the actual steps of
+          improving your site.
         </p>
 
         <Link href="/seo-audit" className={styles.learnMoreButton}>
