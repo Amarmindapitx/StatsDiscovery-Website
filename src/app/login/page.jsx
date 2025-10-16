@@ -23,7 +23,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("https://overcostly-unsullen-loraine.ngrok-free.dev/api/auth/login", {
+      const response = await fetch("https://seo-oddm.vercel.app/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
