@@ -9,7 +9,7 @@ import {
   FiShare2,
   FiSettings,
   FiCheckCircle,
-  FiInfo // Added for StatCard info icon
+  FiInfo
 } from "react-icons/fi";
 
 import {
@@ -20,9 +20,8 @@ import {
 import styles from "./DashboardLayout.module.css";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import ScoreGauge from "../ScoreGauge/ScoreGauge";
-import StatCard from "../StatCard/StatCard"; // Ensure this is correctly imported
+import StatCard from "../StatCard/StatCard";
 import IntegrationCard from "../IntegrationCard/IntegrationCard";
-// import BacklinksTable from "../BacklinksTable/BacklinksTable"; // No longer needed here
 import OrganicKeywordsChart from "../OrganicKeywordsChart/OrganicKeywordsChart";
 import KeywordAnalysis from "../KeywordAnalysis/KeywordAnalysis";
 import SerpFeatures from "../SerpFeatures/SerpFeatures";
@@ -37,48 +36,29 @@ const TABS = ["SEO", "ADS", "GMB", "SOCIAL", "REPUTO", "PMS", "CONTENT"];
 /* -------------------------------------------------------------------------------------------------
     ✅ renderSeoSection
 ------------------------------------------------------------------------------------------------- */
-const renderSeoSection = (data, domain) => {
+const renderSeoSection = (data, website) => {
   if (!data) {
     return (
       <div className={styles.centeredMessage}>
-        No SEO data available for this domain.
+        No SEO data available for this website.
       </div>
     );
   }
 
-  // --- MOCK CHART DATA (Replace with real data from your backend if available) ---
   const organicKeywordsChartData = [
-    { name: 'Jan', value: 10 }, { name: 'Feb', value: 20 }, { name: 'Mar', value: 15 }, 
-    { name: 'Apr', value: 30 }, { name: 'May', value: 25 }, { name: 'Jun', value: 40 }, 
-    { name: 'Jul', value: 35 }, { name: 'Aug', value: 50 }, { name: 'Sep', value: 45 }, 
+    { name: 'Jan', value: 10 }, { name: 'Feb', value: 20 }, { name: 'Mar', value: 15 },
+    { name: 'Apr', value: 30 }, { name: 'May', value: 25 }, { name: 'Jun', value: 40 },
+    { name: 'Jul', value: 35 }, { name: 'Aug', value: 50 }, { name: 'Sep', value: 45 },
     { name: 'Oct', value: 60 }, { name: 'Nov', value: 55 }, { name: 'Dec', value: 70 },
-  ];
-  const pageAuthorityChartData = [
-    { name: 'Jan', value: 30 }, { name: 'Feb', value: 32 }, { name: 'Mar', value: 35 }, 
-    { name: 'Apr', value: 38 }, { name: 'May', value: 40 }, { name: 'Jun', value: 42 }, 
-    { name: 'Jul', value: 44 }, { name: 'Aug', value: 43 }, { name: 'Sep', value: 45 }, 
-    { name: 'Oct', value: 48 }, { name: 'Nov', value: 50 }, { name: 'Dec', value: 52 },
-  ];
-  const referringDomainsChartData = [
-    { name: 'Jan', value: 10 }, { name: 'Feb', value: 12 }, { name: 'Mar', value: 11 }, 
-    { name: 'Apr', value: 14 }, { name: 'May', value: 18 }, { name: 'Jun', value: 17 }, 
-    { name: 'Jul', value: 19 }, { name: 'Aug', value: 22 }, { name: 'Sep', value: 21 }, 
-    { name: 'Oct', value: 23 }, { name: 'Nov', value: 25 }, { name: 'Dec', value: 24 },
-  ];
-  const domainAuthorityChartData = [
-    { name: 'Jan', value: 60 }, { name: 'Feb', value: 61 }, { name: 'Mar', value: 63 }, 
-    { name: 'Apr', value: 65 }, { name: 'May', value: 67 }, { name: 'Jun', value: 69 }, 
-    { name: 'Jul', value: 70 }, { name: 'Aug', value: 71 }, { name: 'Sep', value: 72 }, 
-    { name: 'Oct', value: 73 }, { name: 'Nov', value: 74 }, { name: 'Dec', value: 75 },
   ];
 
   return (
     <>
       <div className={styles.mainGrid}>
         <div className={styles.leftColumn}>
-          <ScoreGauge score={data.score || "85"} />
+          <ScoreGauge score={data.score || "N/A"} />
           <p className={styles.scoreText}>
-            Website score for <strong>{domain}</strong>
+            Website score for <strong>{website}</strong>
           </p>
           <Link href="/seo-audit" className={styles.auditButton}>
             View Audit
@@ -86,15 +66,15 @@ const renderSeoSection = (data, domain) => {
 
           <div className={styles.checksList}>
             <div className={styles.checkItem}>
-              <span>Crawled pages</span> <span>{data.crawled_pages}</span>
+              <span>Crawled pages</span> <span>{data.crawled_pages || "N/A"}</span>
             </div>
             <div className={styles.checkItem}>
               <FiCheckCircle className={styles.checkIcon} />
-              <span>Google indexable pages</span> <span>{data.indexable}</span>
+              <span>Google indexable pages</span> <span>{data.indexable || "N/A"}</span>
             </div>
             <div className={styles.checkItem}>
               <FiCheckCircle className={styles.checkIcon} />
-              <span>Google safe browsing</span> <span>{data.safety}</span>
+              <span>Google safe browsing</span> <span>{data.safety || "N/A"}</span>
             </div>
           </div>
         </div>
@@ -102,27 +82,27 @@ const renderSeoSection = (data, domain) => {
         <div className={styles.rightColumn}>
           <StatCard
             title="Organic Keywords"
-            value={data.organic_keywords}
+            value={data.total_keywords || "N/A"}
             chartType="bar"
             chartData={organicKeywordsChartData}
           />
           <StatCard
             title="Page Authority"
-            value={data.page_authority}
+            value={data.page_authority || "N/A"}
             chartType="line"
-            chartData={pageAuthorityChartData}
+            chartData={organicKeywordsChartData}
           />
           <StatCard
             title="Referring Domains"
-            value={data.total_count}
+            value={data.referring_domains || "N/A"}
             chartType="line"
-            chartData={referringDomainsChartData}
+            chartData={organicKeywordsChartData}
           />
           <StatCard
             title="Domain Authority"
-            value={data.domain_authority}
+            value={data.domain_authority || "N/A"}
             chartType="line"
-            chartData={domainAuthorityChartData}
+            chartData={organicKeywordsChartData}
           />
         </div>
       </div>
@@ -142,10 +122,6 @@ const renderSeoSection = (data, domain) => {
         />
       </div>
 
-      {/* --- The detailed backlinks table has been removed from here to improve flow --- */}
-      {/* You can now show the BacklinksTable component on a separate page or in a modal, */}
-      {/* and link to it from within your BacklinkProfile component. */}
-      
       <div className={styles.chartSection}>
         <OrganicKeywordsChart />
       </div>
@@ -172,7 +148,7 @@ const renderSeoSection = (data, domain) => {
 const DashboardLayout = () => {
   const router = useRouter();
 
-  const [domain, setDomain] = useState(null);
+  const [website, setWebsite] = useState(null);
   const [activeTab, setActiveTab] = useState("SEO");
   const [dashboardData, setDashboardData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -181,51 +157,73 @@ const DashboardLayout = () => {
   // Extract query params
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const domainParam = params.get("domain") || "example.com";
+    const websiteParam = params.get("website") || "www.seodiscovery.com";
     const tabParam = params.get("tab") || "SEO";
-    setDomain(domainParam);
+    setWebsite(websiteParam);
     setActiveTab(tabParam);
   }, []);
 
-  // 🧩 Replace API call with hardcoded mock data
+  // ✅ Fetch Data from API
   useEffect(() => {
-    if (!domain) return;
+    if (!website) return;
 
-    setIsLoading(true);
-    setError(null);
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
 
-    // Simulate async delay like real API
-    setTimeout(() => {
-      const mockData = {
-        total_count: "24",
-        score: "85",
-        crawled_pages: "120",
-        indexable: "98%",
-        safety: "Site is safe",
-        organic_keywords: "230",
-        page_authority: "67",
-        domain_authority: "72",
-        backlinks: [
-          { source: "https://example.com", target: "https://yourdomain.com", anchor: "SEO tips" },
-          { source: "https://blog.com", target: "https://yourdomain.com", anchor: "marketing strategy" },
-        ],
-      };
+      try {
+        const response = await fetch("https://seo-w4pi.vercel.app/api/backlinks/fetch", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ website }),
+        });
 
-      setDashboardData(mockData);
-      setIsLoading(false);
-    }, 1000);
-  }, [domain]);
+        const result = await response.json();
+
+        if (result.success) {
+          const apiData = result.data;
+
+          // ✅ Only keep real values for backlinks and keywords
+          const formattedData = {
+            total_backlinks: apiData.total_backlinks,  // 28379
+            total_keywords: apiData.total_keywords,    // 356203
+            first_backlink: apiData.first_backlink,
+            first_keyword: apiData.first_keyword,
+            score: "N/A",
+            crawled_pages: "N/A",
+            indexable: "N/A",
+            safety: "N/A",
+            page_authority: "N/A",
+            domain_authority: "N/A",
+            referring_domains: "N/A",
+          };
+
+          setDashboardData(formattedData);
+        } else {
+          setError("Failed to fetch data from API.");
+        }
+      } catch (err) {
+        setError("Error fetching data from API.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [website]);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    router.push(`/dashboard?domain=${domain || ""}&tab=${tab}`);
+    router.push(`/dashboard?website=${website || ""}&tab=${tab}`);
   };
 
   const renderMainContent = () => {
-    if (!domain) {
+    if (!website) {
       return (
         <div className={styles.centeredMessage}>
-          Please provide a domain in the URL to see the report.
+          Please provide a website in the URL to see the report.
         </div>
       );
     }
@@ -233,7 +231,7 @@ const DashboardLayout = () => {
     if (isLoading) {
       return (
         <div className={styles.centeredMessage}>
-          Loading data for {domain}...
+          Loading data for {website}...
         </div>
       );
     }
@@ -253,13 +251,13 @@ const DashboardLayout = () => {
         return <GmbDashboard />;
       case "SEO":
       default:
-        return renderSeoSection(dashboardData, domain);
+        return renderSeoSection(dashboardData, website);
     }
   };
 
   return (
     <div className={styles.dashboardContainer}>
-      <DashboardHeader clientName={domain} />
+      <DashboardHeader clientName={website} />
 
       <div className={styles.tabsAndActions}>
         <div className={styles.tabs}>
